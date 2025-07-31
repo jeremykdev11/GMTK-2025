@@ -16,10 +16,10 @@ playerState = PLAYER_STATE.FreeMove;
 
 function MovePlayer(_dir, _amount, _frames = 15)
 {
-	// TEMP: Set image
-	image_index = _dir;
-	
 	MoveCharacter(_dir, _amount, _frames);
+	
+	// TEMP: Set image
+	image_index = facingDir;
 }
 
 #endregion

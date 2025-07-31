@@ -13,6 +13,8 @@ function MoveCharacter(_dir, _amount, _frames = 15)
 	moving = true;
 	moveFrame = 0;
 	moveFrameCount = _frames;
+	
+	facingDir = _dir;
 }
 
 function DirToVector(_dir, _amount)
@@ -25,6 +27,33 @@ function DirToVector(_dir, _amount)
 		case DIR.Up:	_tempVector.y = -_amount;	break;
 		case DIR.Left:	_tempVector.x = -_amount;	break;
 		case DIR.Down:	_tempVector.y = _amount;	break;
+	}
+	
+	return _tempVector;
+}
+
+function RotateVectorByDir(_vector, _dir)
+{
+	var _tempVector = new Vector(0, 0);
+	
+	switch(_dir)
+	{
+		case DIR.Right:
+			_tempVector.x = _vector.x;
+			_tempVector.y = _vector.y;
+			break;
+		case DIR.Up:
+			_tempVector.x = _vector.y;
+			_tempVector.y = -_vector.x;
+			break;
+		case DIR.Left:
+			_tempVector.x = -_vector.x;
+			_tempVector.y = -_vector.y;
+			break;
+		case DIR.Down:
+			_tempVector.x = -_vector.y;
+			_tempVector.y = _vector.x;
+			break;
 	}
 	
 	return _tempVector;
