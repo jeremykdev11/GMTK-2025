@@ -1,24 +1,14 @@
 // Feather disable all
-
 /// @param fontName
 /// @param glyphCount
-/// @param renderType
-/// @param fromBundle
+/// @param fontType
 
-function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) constructor
+function __scribble_class_font(_name, _glyph_count, _fontType) constructor
 {
-    //The name of the font. This is the alias used to reference the font elsewhere
-    __name = _name;
+    __name     = _name;
+    __fontType = _fontType;
     
-    //One of the `__SCRIBBLE_RENDER_*` macros. Largely used to determine which shader path to use
-    __render_type = _render_type; //FIXME: Why is this camelCase, Juju?
-    
-    //Whether the source texture data exists in the asset bundle. If set to `false`, the source
-    //texture data was added at runtime (probably with `sprite_add()`). This value can be `undefined`
-    //if the origin is not known (typically spritefonts).
-    __from_bundle = _from_bundle;
-    
-    static _font_data_map = __scribble_initialize().__font_data_map;
+    static _font_data_map = __scribble_get_font_data_map();
     _font_data_map[? _name] = self;
     
     __glyph_data_grid = ds_grid_create(_glyph_count, SCRIBBLE_GLYPH.__SIZE);
@@ -26,7 +16,11 @@ function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) 
     __kerning_map     = ds_map_create();
     
     __is_krutidev = false;
-    __bilinear    = (__render_type == __SCRIBBLE_RENDER_SDF)? true : undefined;
+    __bilinear    = (_fontType == __SCRIBBLE_FONT_TYPE.__SDF)? true : undefined;
+    
+    __sdf                  = (_fontType == __SCRIBBLE_FONT_TYPE.__SDF);
+    __sdf_pxrange          = undefined;
+    __sdf_thickness_offset = 0;
     
     __superfont     = false;
     __runtime       = false;
@@ -43,10 +37,6 @@ function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) 
     __style_italic      = undefined;
     __style_bold_italic = undefined;
     
-    
-    
-    
-    
     static __copy_to = function(_target, _copy_styles)
     {
         var _names = variable_struct_get_names(self);
@@ -62,9 +52,7 @@ function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) 
             {
                 ds_grid_copy(_target.__glyph_data_grid, __glyph_data_grid);
             }
-            else if ((_name != "__name")
-                  && (_name != "__from_bundle")
-                  && (_copy_styles || ((_name != "__style_regular") && (_name != "__style_bold") && (_name != "__style_italic") && (_name != "__style_bold_italic"))))
+            else if ((_name != "__name") && (_copy_styles || ((_name != "__style_regular") && (_name != "__style_bold") && (_name != "__style_italic") && (_name != "__style_bold_italic"))))
             {
                 variable_struct_set(_target, _name, variable_struct_get(self, _name));
             }
@@ -85,6 +73,9 @@ function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) 
         
         ds_map_clear(__glyphs_map);
         
+        __sdf_pxrange = undefined;
+        __sdf         = undefined;
+        
         __height = 0;
     }
     
@@ -95,6 +86,7 @@ function __scribble_class_font(_name, _glyph_count, _render_type, _from_bundle) 
         ds_map_destroy(__glyphs_map);
         ds_grid_destroy(__glyph_data_grid);
         
+        static _font_data_map = __scribble_get_font_data_map();
         ds_map_delete(_font_data_map, __name);
         
         if (__source_sprite != undefined)

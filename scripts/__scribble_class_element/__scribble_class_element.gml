@@ -4,15 +4,14 @@
 
 function __scribble_class_element(_string, _unique_id) constructor
 {
-    static __scribble_state    = __scribble_initialize().__state;
-    static __ecache_array      = __scribble_initialize().__cache_state.__ecache_array;
-    static __ecache_dict       = __scribble_initialize().__cache_state.__ecache_dict;
-    static __ecache_weak_array = __scribble_initialize().__cache_state.__ecache_weak_array;
-    static __ecache_name_array = __scribble_initialize().__cache_state.__ecache_name_array;
+    static __scribble_state    = __scribble_get_state();
+    static __ecache_array      = __scribble_get_cache_state().__ecache_array;
+    static __ecache_dict       = __scribble_get_cache_state().__ecache_dict;
+    static __ecache_name_array = __scribble_get_cache_state().__ecache_name_array;
     
     __text       = _string;
     __unique_id  = _unique_id;
-    __cache_name = ((_unique_id == undefined)? SCRIBBLE_DEFAULT_UNIQUE_ID : (string(_unique_id) + ":")) + _string;
+    __cache_name = _string + ((_unique_id == undefined)? SCRIBBLE_DEFAULT_UNIQUE_ID : (":" + string(_unique_id)));
     
     if (__SCRIBBLE_DEBUG) __scribble_trace("Caching element \"" + __cache_name + "\"");
     
@@ -27,7 +26,6 @@ function __scribble_class_element(_string, _unique_id) constructor
     //Add this text element to the global cache
     __ecache_dict[$ __cache_name] = weak_ref_create(self);
     array_push(__ecache_array, self);
-    array_push(__ecache_weak_array, weak_ref_create(self));
     array_push(__ecache_name_array, __cache_name);
     
     __flushed = false;
@@ -89,8 +87,6 @@ function __scribble_class_element(_string, _unique_id) constructor
     __line_height_min = -1;
     __line_height_max = -1;
     __line_spacing  = "100%";
-    
-    __visual_bboxes = SCRIBBLE_DEFAULT_VISUAL_BBOXES;
     
     __page = 0;
     __ignore_command_tags = false;
@@ -162,13 +158,7 @@ function __scribble_class_element(_string, _unique_id) constructor
     /// @param [typist]
     static draw = function(_x, _y, _typist = undefined)
     {
-        static _scribble_state = __scribble_initialize().__state;
-        
-        if (SCRIBBLE_FLOOR_DRAW_COORDINATES)
-        {
-            _x = floor(_x);
-            _y = floor(_y);
-        }
+        static _scribble_state = __scribble_get_state();
         
         var _function_scope = other;
         
@@ -546,10 +536,6 @@ function __scribble_class_element(_string, _unique_id) constructor
         return self;
     }
     
-    /// @param left
-    /// @param top
-    /// @param right
-    /// @param bottom
     static padding = function(_l, _t, _r, _b)
     {
         if ((_l != __padding_l) || (_t != __padding_t) || (_r != __padding_r) || (_b != __padding_b))
@@ -563,22 +549,6 @@ function __scribble_class_element(_string, _unique_id) constructor
             __padding_t = _t;
             __padding_r = _r;
             __padding_b = _b;
-        }
-        
-        return self;
-    }
-    
-    /// @param state
-    static visual_bboxes = function(_state)
-    {
-        if (__visual_bboxes != _state)
-        {
-            __model_cache_name_dirty = true;
-            __matrix_dirty           = true;
-            __bbox_dirty             = true;
-            __scale_to_box_dirty     = true;
-            
-            __visual_bboxes = _state;
         }
         
         return self;
@@ -681,15 +651,15 @@ function __scribble_class_element(_string, _unique_id) constructor
         repeat(_i+1)
         {
             var _region = _region_array[_i];
-            var _bbox_array = _region.bbox_array;
+            var _bbox_array = _region.__bbox_array;
             
             var _j = 0;
             repeat(array_length(_bbox_array))
             {
                 var _bbox = _bbox_array[_j];
-                if ((_x >= _bbox.x1) && (_y >= _bbox.y1) && (_x <= _bbox.x2) && (_y <= _bbox.y2))
+                if ((_x >= _bbox.__x1) && (_y >= _bbox.__y1) && (_x <= _bbox.__x2) && (_y <= _bbox.__y2))
                 {
-                    _found = _region.name;
+                    _found = _region.__name;
                     break;
                 }
                 
@@ -725,11 +695,11 @@ function __scribble_class_element(_string, _unique_id) constructor
         repeat(array_length(_region_array))
         {
             var _region = _region_array[_i];
-            if (_region.name == _name)
+            if (_region.__name == _name)
             {
                 __region_active      = _name;
-                __region_glyph_start = _region.start_glyph;
-                __region_glyph_end   = _region.end_glyph;
+                __region_glyph_start = _region.__start_glyph;
+                __region_glyph_end   = _region.__end_glyph;
                 __region_colour      = _colour;
                 __region_blend       = _blend_amount;
                 return;
@@ -744,22 +714,6 @@ function __scribble_class_element(_string, _unique_id) constructor
     static region_get_active = function()
     {
         return __region_active;
-    }
-    
-    static region_clear = function()
-    {
-        region_set_active(undefined, undefined, undefined);
-        return self;
-    }
-    
-    static region_get_bboxes = function()
-    {
-        static _emptyArray = [];
-        
-        var _model = __get_model(true);
-        if (!is_struct(_model)) return _emptyArray;
-        
-        return _model.__pages_array[__page].__region_array;
     }
     
     #endregion
@@ -1340,12 +1294,6 @@ function __scribble_class_element(_string, _unique_id) constructor
         if (_model != undefined)
         {
             _model.__flush();
-            
-            __model_cache_name_dirty = true;
-            __matrix_dirty           = true;
-            __bbox_dirty             = true;
-            __scale_to_box_dirty     = true;
-            
             __get_model(true);
         }
         
@@ -1354,8 +1302,6 @@ function __scribble_class_element(_string, _unique_id) constructor
     
     static flush = function()
     {
-        //Don't forget to update scribble_flush_everything() if you change anything here!
-        
         if (__flushed) return undefined;
         if (__SCRIBBLE_DEBUG) __scribble_trace("Flushing element \"" + string(__cache_name) + "\"");
         
@@ -1390,11 +1336,6 @@ function __scribble_class_element(_string, _unique_id) constructor
     {
         if (_function != __preprocessorFunc)
         {
-            if ((_function != undefined) && (not script_exists(_function)))
-            {
-                __scribble_error("Preprocessor functions must be stored in scripts in global scope");
-            }
-            
             __model_cache_name_dirty = true;
             __preprocessorFunc = _function;
         }
@@ -1499,7 +1440,7 @@ function __scribble_class_element(_string, _unique_id) constructor
         __text      = _text;
         __unique_id = _unique_id;
         
-        var _new_cache_name = ((_unique_id == undefined)? SCRIBBLE_DEFAULT_UNIQUE_ID : (string(_unique_id) + ":")) + __text;
+        var _new_cache_name = __text + ((_unique_id == undefined)? SCRIBBLE_DEFAULT_UNIQUE_ID : (":" + string(_unique_id)));
         if (__cache_name != _new_cache_name)
         {
             flush();
@@ -1561,7 +1502,7 @@ function __scribble_class_element(_string, _unique_id) constructor
     
     static __get_model = function(_allow_create)
     {
-        static _mcache_dict = __scribble_initialize().__cache_state.__mcache_dict;
+        static _mcache_dict = __scribble_get_cache_state().__mcache_dict;
         
         if (__flushed || (__text == ""))
         {
@@ -1575,34 +1516,33 @@ function __scribble_class_element(_string, _unique_id) constructor
                 __bbox_dirty             = true;
                 __scale_to_box_dirty     = true; //The dimensions of the text element might change as a result of a model change
                 
-                static _buffer = __scribble_initialize().__buffer_a;
+                static _buffer = __scribble_get_buffer_a();
                 buffer_seek(_buffer, buffer_seek_start, 0);
-                buffer_write(_buffer, buffer_text, string(__text               )); buffer_write(_buffer, buffer_u8, 0x3A); //colon
-                buffer_write(_buffer, buffer_text, string(__starting_font      )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__starting_colour    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__starting_halign    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__starting_valign    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__pre_scale          )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__line_height_min    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__line_height_max    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__line_spacing       )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_apply         )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_max_width  - (__padding_l + __padding_r))); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_max_height - (__padding_t + __padding_b))); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_per_char      )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_no_pages      )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__wrap_max_scale     )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__bezier_array[0]    )); buffer_write(_buffer, buffer_u8, 0x2C); //comma
-                buffer_write(_buffer, buffer_text, string(__bezier_array[1]    )); buffer_write(_buffer, buffer_u8, 0x2C);
-                buffer_write(_buffer, buffer_text, string(__bezier_array[2]    )); buffer_write(_buffer, buffer_u8, 0x2C);
-                buffer_write(_buffer, buffer_text, string(__bezier_array[3]    )); buffer_write(_buffer, buffer_u8, 0x2C);
-                buffer_write(_buffer, buffer_text, string(__bezier_array[4]    )); buffer_write(_buffer, buffer_u8, 0x2C);
-                buffer_write(_buffer, buffer_text, string(__bezier_array[5]    )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__bidi_hint          )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__ignore_command_tags)); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__randomize_animation)); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(__visual_bboxes        )); buffer_write(_buffer, buffer_u8, 0x3A);
-                buffer_write(_buffer, buffer_text, string(ptr(__preprocessorFunc ?? pointer_null))); buffer_write(_buffer, buffer_u8, 0x3A);
+                buffer_write(_buffer, buffer_text, string(__text           ));     buffer_write(_buffer, buffer_u8,  0x3A); //colon
+                buffer_write(_buffer, buffer_text, string(__starting_font  ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__starting_colour));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__starting_halign));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__starting_valign));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__pre_scale      ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__line_height_min));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__line_height_max));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__line_spacing   ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_apply     ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_max_width  - (__padding_l + __padding_r))); buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_max_height - (__padding_t + __padding_b))); buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_per_char  ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_no_pages  ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__wrap_max_scale ));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__bezier_array[0]));     buffer_write(_buffer, buffer_u8,  0x2C); //comma
+                buffer_write(_buffer, buffer_text, string(__bezier_array[1]));     buffer_write(_buffer, buffer_u8,  0x2C);
+                buffer_write(_buffer, buffer_text, string(__bezier_array[2]));     buffer_write(_buffer, buffer_u8,  0x2C);
+                buffer_write(_buffer, buffer_text, string(__bezier_array[3]));     buffer_write(_buffer, buffer_u8,  0x2C);
+                buffer_write(_buffer, buffer_text, string(__bezier_array[4]));     buffer_write(_buffer, buffer_u8,  0x2C);
+                buffer_write(_buffer, buffer_text, string(__bezier_array[5]));     buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__bidi_hint));           buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__ignore_command_tags)); buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(__randomize_animation)); buffer_write(_buffer, buffer_u8,  0x3A);
+                buffer_write(_buffer, buffer_text, string(ptr(__preprocessorFunc ?? pointer_null))); buffer_write(_buffer, buffer_u8,  0x3A);
                 buffer_write(_buffer, buffer_u8, 0x00);
                 buffer_seek(_buffer, buffer_seek_start, 0);
                 
@@ -1656,8 +1596,8 @@ function __scribble_class_element(_string, _unique_id) constructor
         static _u_vOutlineColour            = shader_get_uniform(__shd_scribble, "u_vOutlineColour"         );
         static _u_fOutlineThickness         = shader_get_uniform(__shd_scribble, "u_fOutlineThickness"      );
         
-        static _scribble_state        = __scribble_initialize().__state;
-        static _anim_properties_array = __scribble_initialize().__anim_properties;
+        static _scribble_state        = __scribble_get_state();
+        static _anim_properties_array = __scribble_get_anim_properties();
         
         static _shader_uniforms_dirty    = true;
         static _shader_set_to_use_bezier = false;
