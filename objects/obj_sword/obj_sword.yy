@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_sword",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_sword",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_swordTimeline",
-    "path":"sprites/spr_swordTimeline/spr_swordTimeline.yy",
+    "name":"spr_swordAction",
+    "path":"sprites/spr_swordAction/spr_swordAction.yy",
   },
   "spriteMaskId":null,
   "visible":true,

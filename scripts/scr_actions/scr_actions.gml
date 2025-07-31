@@ -20,6 +20,12 @@ function Action(_displacement, _object, _sprite) constructor
 		_dirDisplacement.multiply(TILE_SIZE);
 		
 		// Create action
-		instance_create_depth(obj_player.x + _dirDisplacement.x, obj_player.y + +_dirDisplacement.y, obj_player.depth, object);
+		instance_create_depth(
+			obj_player.x + _dirDisplacement.x,
+			obj_player.y + +_dirDisplacement.y,
+			obj_player.depth,
+			object,
+			{ facingDir : _dir }
+		);
 	}
 }
