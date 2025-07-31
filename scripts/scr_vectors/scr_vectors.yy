@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"MACROS",
+  "%Name":"scr_vectors",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"MACROS",
+  "name":"scr_vectors",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

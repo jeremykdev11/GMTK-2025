@@ -17,10 +17,10 @@ switch (playerState)
 	
 	if (!moving)
 	{
-		if (leftPressed) MovePlayer(-TILE_SIZE, 0);
-		if (rightPressed) MovePlayer(TILE_SIZE, 0);
-		if (upPressed) MovePlayer(0, -TILE_SIZE);
-		if (downPressed) MovePlayer(0, TILE_SIZE);
+		if (rightPressed)	MovePlayer(DIR.Right, TILE_SIZE);
+		if (upPressed)		MovePlayer(DIR.Up, TILE_SIZE);
+		if (leftPressed)	MovePlayer(DIR.Left, TILE_SIZE);
+		if (downPressed)	MovePlayer(DIR.Down, TILE_SIZE);
 	}
 	
 	break;
@@ -32,8 +32,8 @@ switch (playerState)
 
 if (moving)
 {	
-	x = EaseOutCubic(moveFrame, startX, targetX - startX, moveFrameCount);
-	y = EaseOutCubic(moveFrame, startY, targetY - startY, moveFrameCount);
+	x = EaseOutCubic(moveFrame, startPos.x, targetPos.x - startPos.x, moveFrameCount);
+	y = EaseOutCubic(moveFrame, startPos.y, targetPos.y - startPos.y, moveFrameCount);
 	
 	moveFrame++;
 	

@@ -1,18 +1,6 @@
 ///@desc Player Setup
 
-#region Variables
-
-moving			=	false;
-moveFrame		=	0;
-moveFrameCount	=	0;
-
-startX			=	x;
-startY			=	y;
-
-targetX			=	x;
-targetY			=	y;
-
-#endregion
+event_inherited();
 
 #region State Machine Declaration
 
@@ -26,19 +14,12 @@ playerState = PLAYER_STATE.FreeMove;
 
 #region Functions
 
-function MovePlayer(_x, _y, _frames = 15)
+function MovePlayer(_dir, _amount, _frames = 15)
 {
-	// TODO: Do check to see if position is open before moving
+	// TEMP: Set image
+	image_index = _dir;
 	
-	moving = true;
-	moveFrame = 0;
-	moveFrameCount = _frames;
-	
-	startX = x;
-	startY = y;
-	
-	targetX = x + _x;
-	targetY = y + _y;
+	MoveCharacter(_dir, _amount, _frames);
 }
 
 #endregion
