@@ -1,3 +1,5 @@
+#region Character Movement
+
 function MoveCharacterByDir(_dir, _amount, _frames = 15)
 {	
 	// Get movement coordinates
@@ -31,7 +33,7 @@ function DoMove(_dir, _frames)
 {
 	// Check if position is open before moving
 	if (place_meeting(targetPos.x, targetPos.y, obj_wall)) return;
-	if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
+	//if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
 	if (place_meeting(targetPos.x, targetPos.y, obj_player)) return;
 	
 	// Start movement
@@ -41,6 +43,10 @@ function DoMove(_dir, _frames)
 	
 	facingDir = _dir;
 }
+
+#endregion
+
+#region World Space Conversion
 
 function DirToVector(_dir, _amount)
 {
@@ -83,3 +89,13 @@ function RotateVectorByDir(_vector, _dir)
 	
 	return _tempVector;
 }
+
+function WorldToGrid(_x, _y)
+{
+	var _gridX = (_x - TILE_SIZE) / TILE_SIZE;
+	var _gridY = (_y - TILE_SIZE) / TILE_SIZE;
+	
+	return new Vector(_gridX, _gridY);
+}
+
+#endregion
