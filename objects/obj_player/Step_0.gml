@@ -1,5 +1,8 @@
 /// @desc Update Player
 
+// Inherit movement updates
+event_inherited();
+
 #region Get Input
 
 leftPressed		= InputPressed(INPUT_VERB.LEFT);
@@ -27,19 +30,3 @@ switch (playerState)
 }
 
 #endregion
-
-// Update Player Movement
-
-if (moving)
-{	
-	x = EaseOutCubic(moveFrame, startPos.x, targetPos.x - startPos.x, moveFrameCount);
-	y = EaseOutCubic(moveFrame, startPos.y, targetPos.y - startPos.y, moveFrameCount);
-	
-	moveFrame++;
-	
-	// Stop movement at end of animation
-	if (moveFrame > moveFrameCount)
-	{
-		moving = false;
-	}
-}
