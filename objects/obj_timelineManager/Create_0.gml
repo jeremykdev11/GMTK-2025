@@ -18,7 +18,10 @@ actionSword = new Action(
 		new Vector(1, 0),
 		new Vector(1, 1)
 	],
-	-1
+	function()
+	{
+		with (obj_player) MoveCharacterByDir((facingDir + 2) % 4, 32)
+	}
 );
 
 actionGun = new Action(
