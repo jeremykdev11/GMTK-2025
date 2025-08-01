@@ -1,13 +1,14 @@
 function MoveCharacter(_dir, _amount, _frames = 15)
-{
-	// TODO: Do check to see if position is open before moving
-	
+{	
 	// Get movement coordinates
 	startPos = new Vector(x, y);
 	targetPos = VectorCopy(startPos);
 	
 	var _moveVector = DirToVector(_dir, _amount);
 	targetPos.add(_moveVector);
+	
+	// Do check to see if position is open before moving
+	if (place_meeting(targetPos.x, targetPos.y, obj_wall)) return;
 	
 	// Start movement
 	moving = true;
