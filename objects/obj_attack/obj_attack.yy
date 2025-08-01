@@ -1,20 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_gun",
+  "%Name":"obj_attack",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_gun",
+  "name":"obj_attack",
   "overriddenProperties":[],
   "parent":{
-    "name":"Actions",
-    "path":"folders/Objects/World/Player/Actions.yy",
+    "name":"Player",
+    "path":"folders/Objects/World/Player.yy",
   },
-  "parentObjectId":{
-    "name":"obj_actionParent",
-    "path":"objects/obj_actionParent/obj_actionParent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gunAction",
-    "path":"sprites/spr_gunAction/spr_gunAction.yy",
+    "name":"spr_swordTimeline",
+    "path":"sprites/spr_swordTimeline/spr_swordTimeline.yy",
   },
   "spriteMaskId":null,
   "visible":true,
