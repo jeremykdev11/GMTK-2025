@@ -10,6 +10,8 @@ if (moving)
 	// Stop movement at end of animation
 	if (moveFrame > moveFrameCount)
 	{
+		x = targetPos.x;
+		y = targetPos.y;
 		moving = false;
 		endMove();
 	}

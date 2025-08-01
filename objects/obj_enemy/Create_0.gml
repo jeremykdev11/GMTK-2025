@@ -1,8 +1,10 @@
-/// @desc
+/// @desc Setup Enemy
 
 event_inherited();
 
-//MoveEnemy();
+attacking			=	false;
+attackFrame			=	0;
+attackFrameCount	=	0;
 
 function MoveEnemy(_frames = 15)
 {

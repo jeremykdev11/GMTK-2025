@@ -48,9 +48,12 @@ function MoveAllEnemies()
 			// Move
 			MoveEnemy();
 			
-			// After moving, set new cell to "forbidden"
-			var _newCellPos = WorldToGrid(targetPos.x, targetPos.y);
-			mp_grid_add_cell(global.grid, _newCellPos.x, _newCellPos.y);
+			// After moving, set new cell to "forbidden" (unless attacking player)
+			if !(place_meeting(targetPos.x, targetPos.y, obj_player))
+			{
+				var _newCellPos = WorldToGrid(targetPos.x, targetPos.y);
+				mp_grid_add_cell(global.grid, _newCellPos.x, _newCellPos.y);
+			}
 		}
 	}
 	

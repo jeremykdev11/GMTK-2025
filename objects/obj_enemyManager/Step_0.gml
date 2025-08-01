@@ -3,6 +3,6 @@
 if (global.gameState == GAME_STATE.EnemyMove)
 {
 	var _doneMoving = true;
-	with (obj_enemy) if (moving) _doneMoving = false;
+	with (obj_enemy) if (moving || attacking) _doneMoving = false;
 	if _doneMoving SetGameState(GAME_STATE.PlayerMove);
 }

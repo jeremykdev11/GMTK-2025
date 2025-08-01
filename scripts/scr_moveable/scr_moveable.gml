@@ -33,8 +33,20 @@ function DoMove(_dir, _frames)
 {
 	// Check if position is open before moving
 	if (place_meeting(targetPos.x, targetPos.y, obj_wall)) return;
+	
+	// Enemy attack
+	if (place_meeting(targetPos.x, targetPos.y, obj_player))
+	{
+		attacking = true;
+		attackFrame = 0;
+		attackFrameCount = _frames;
+		
+		facingDir = _dir;
+		
+		return;
+	}
+	
 	//if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
-	if (place_meeting(targetPos.x, targetPos.y, obj_player)) return;
 	
 	// Start movement
 	moving = true;
