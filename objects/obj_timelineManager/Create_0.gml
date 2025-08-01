@@ -6,6 +6,9 @@ actionList = ds_list_create();
 actionFrame = 0;
 actionDuration = 15;
 
+iconSize = 32;
+iconSpacing = 8;
+
 #region Define Actions
 
 actionSword = new Action(
