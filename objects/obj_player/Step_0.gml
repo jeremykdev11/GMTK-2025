@@ -14,9 +14,9 @@ downPressed		= InputPressed(INPUT_VERB.DOWN);
 
 #region State Machine
 
-switch (playerState)
+switch (global.gameState)
 {
-	case PLAYER_STATE.FreeMove:
+	case GAME_STATE.PlayerMove:
 	
 	if (!moving)
 	{

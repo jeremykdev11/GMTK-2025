@@ -3,6 +3,9 @@
 position = 0;
 actionList = ds_list_create();
 
+actionFrame = 0;
+actionDuration = 15;
+
 #region Define Actions
 
 actionSword = new Action(new Vector(1, 0), obj_sword, spr_swordTimeline);

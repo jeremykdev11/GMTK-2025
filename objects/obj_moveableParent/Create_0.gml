@@ -12,3 +12,12 @@ targetPos		=	new Vector(x, y);
 facingDir		=	DIR.Right;
 
 #endregion
+
+#region Functions
+
+endMove = function()
+{
+	// OVERRIDE
+}
+
+#endregion

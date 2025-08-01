@@ -1,4 +1,7 @@
 /// @desc Generic Action Setup
 
-loopDelay = 0;
+actionDelay = 0;
 image_angle = facingDir * 90;
+
+animFrame = 0;
+animDuration = 15;

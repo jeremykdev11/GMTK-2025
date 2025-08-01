@@ -4,11 +4,11 @@ event_inherited();
 
 #region State Machine Declaration
 
-enum PLAYER_STATE
-{
-	FreeMove
-}
-playerState = PLAYER_STATE.FreeMove;
+//enum PLAYER_STATE
+//{
+//	FreeMove
+//}
+//playerState = PLAYER_STATE.FreeMove;
 
 #endregion
 
@@ -16,10 +16,15 @@ playerState = PLAYER_STATE.FreeMove;
 
 function MovePlayer(_dir, _amount, _frames = 15)
 {
-	MoveCharacter(_dir, _amount, _frames);
+	MoveCharacterByDir(_dir, _amount, _frames);
 	
 	// TEMP: Set image
 	image_index = facingDir;
+}
+
+endMove = function()
+{
+	SetGameState(GAME_STATE.TimelineAction);
 }
 
 #endregion

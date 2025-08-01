@@ -3,13 +3,14 @@
   "%Name":"obj_sword",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_sword",
   "overriddenProperties":[],
   "parent":{
     "name":"Actions",
-    "path":"folders/Objects/Player/Actions.yy",
+    "path":"folders/Objects/World/Player/Actions.yy",
   },
   "parentObjectId":{
     "name":"obj_actionParent",

@@ -11,5 +11,6 @@ if (moving)
 	if (moveFrame > moveFrameCount)
 	{
 		moving = false;
+		endMove();
 	}
 }

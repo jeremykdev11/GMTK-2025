@@ -1,14 +1,38 @@
-function MoveCharacter(_dir, _amount, _frames = 15)
+function MoveCharacterByDir(_dir, _amount, _frames = 15)
 {	
 	// Get movement coordinates
 	startPos = new Vector(x, y);
 	targetPos = VectorCopy(startPos);
 	
+	// Get target position
 	var _moveVector = DirToVector(_dir, _amount);
 	targetPos.add(_moveVector);
 	
-	// Do check to see if position is open before moving
+	// Move
+	DoMove(_dir, _frames);
+}
+
+function MoveCharacterByVec(_vec, _frames = 15)
+{
+	// Get movement coordinates
+	startPos = new Vector(x, y);
+	targetPos = VectorCopy(_vec);
+	
+	// Get move direction
+	var _tempVec = VectorCopy(targetPos);
+	_tempVec.subtract(startPos);
+	var _dir = abs((_tempVec.getDirection()) / 90);
+	
+	// Move
+	DoMove(_dir, _frames);
+}
+
+function DoMove(_dir, _frames)
+{
+	// Check if position is open before moving
 	if (place_meeting(targetPos.x, targetPos.y, obj_wall)) return;
+	if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
+	if (place_meeting(targetPos.x, targetPos.y, obj_player)) return;
 	
 	// Start movement
 	moving = true;
