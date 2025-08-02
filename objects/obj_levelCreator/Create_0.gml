@@ -12,7 +12,7 @@ boardHeight = 9;
 // wallAmount is the percentage of tiles to turn into walls
 refresh = function(_wallAmount = 10) 
 {
-	with obj_tileSpawner{instance_destroy();}
+	with (obj_tileSpawner) instance_destroy();
 	for (var _i = 0; _i < boardWidth; _i++)
 	{
 		for (var _j = 0; _j < boardHeight; _j++)

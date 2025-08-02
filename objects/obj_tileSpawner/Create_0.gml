@@ -7,8 +7,11 @@ image_speed = 0;
 
 if (irandom(100) < wallPercent)
 {
-	instance_create_layer(x, y, layer, obj_wall);
-	instance_destroy();
+	if (place_meeting(x, y, obj_player))
+	{
+		instance_create_layer(x, y, layer, obj_wall);
+		instance_destroy();
+	}
 }
 
 sprite_index = spr_tiles;
