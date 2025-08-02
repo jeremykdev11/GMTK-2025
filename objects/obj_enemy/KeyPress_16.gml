@@ -1,3 +1,3 @@
 /// @desc TEMP
 
-MoveEnemy();
+//MoveEnemy();

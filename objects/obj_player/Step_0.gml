@@ -37,4 +37,5 @@ if (xp >= xpMax)
 	xp -= xpMax;
 	xpMax += 2;
 	level++;
+	obj_timelineManager.leveledUp = true;
 }

@@ -9,6 +9,8 @@ actionDuration = 15;
 iconSize = 32;
 iconSpacing = 8;
 
+leveledUp = false;
+
 #region Define Actions
 
 actionSword = new Action(
@@ -35,7 +37,7 @@ actionGun = new Action(
 );
 
 actionCross = new Action(
-	spr_gunTimeline,
+	spr_crossTimeline,
 	[
 		new Vector(1, 1),
 		new Vector(1, -1),

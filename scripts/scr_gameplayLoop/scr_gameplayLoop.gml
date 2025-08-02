@@ -17,3 +17,8 @@ function SetGameState(_state)
 	// Set state
 	global.gameState = _state;
 }
+
+function GamePaused()
+{
+	return instance_exists(obj_pauseObject);
+}

@@ -9,6 +9,11 @@ if (global.gameState == GAME_STATE.TimelineAction)
 	if (actionFrame > actionDuration)
 	{
 		actionFrame = 0;
-		SetGameState(GAME_STATE.EnemyMove);
+		if (leveledUp)
+		{
+			leveledUp = false;
+			SetGameState(GAME_STATE.LevelUp);
+		}
+		else SetGameState(GAME_STATE.EnemyMove);
 	}
 }
