@@ -32,14 +32,14 @@
   "resourceType":"GMRoom",
   "resourceVersion":"2.0",
   "roomSettings":{
-    "Height":320,
+    "Height":704,
     "inheritRoomSettings":false,
     "persistent":false,
-    "Width":416,
+    "Width":480,
   },
   "sequenceId":null,
   "views":[
-    {"hborder":32,"hport":640,"hspeed":-1,"hview":320,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":832,"wview":416,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":704,"hspeed":-1,"hview":704,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":480,"wview":480,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
