@@ -2,6 +2,8 @@
 
 event_inherited();
 
+
+
 function MoveEnemy(_frames = 15)
 {
 	// Get path
@@ -22,4 +24,9 @@ function MoveEnemy(_frames = 15)
 	
 	// TEMP: Set image
 	image_index = facingDir;
+}
+
+endBump = function()
+{
+	with (obj_player) hp--;
 }

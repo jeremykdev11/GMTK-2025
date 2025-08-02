@@ -30,3 +30,11 @@ switch (global.gameState)
 }
 
 #endregion
+
+// Update xp/level
+if (xp >= xpMax)
+{
+	xp -= xpMax;
+	xpMax += 2;
+	level++;
+}

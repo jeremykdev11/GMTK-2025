@@ -1,5 +1,8 @@
 /// @desc Enemy Management Setup
 
+enemyMoveFrame = 0;
+enemyMoveDuration = 15;
+
 #region Pathfinding Grid
 
 gridX = TILE_SIZE / 2;

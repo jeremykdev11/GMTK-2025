@@ -7,6 +7,7 @@ event_inherited();
 xp = 0;
 xpMax = 4;
 hp = 3;
+level = 1;
 
 #endregion
 
@@ -27,8 +28,11 @@ endMove = function()
 
 endBump = function()
 {
-	hp--;
-	if (global.gameState == GAME_STATE.PlayerMove) SetGameState(GAME_STATE.TimelineAction);
+	if (global.gameState == GAME_STATE.PlayerMove)
+	{
+		hp--;
+		SetGameState(GAME_STATE.TimelineAction);
+	}
 }
 
 
