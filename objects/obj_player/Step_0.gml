@@ -18,7 +18,7 @@ switch (global.gameState)
 {
 	case GAME_STATE.PlayerMove:
 	
-	if (!moving)
+	if (!moving && !bumping)
 	{
 		if (rightPressed)	MovePlayer(DIR.Right, TILE_SIZE);
 		if (upPressed)		MovePlayer(DIR.Up, TILE_SIZE);

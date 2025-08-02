@@ -2,10 +2,6 @@
 
 event_inherited();
 
-attacking			=	false;
-attackFrame			=	0;
-attackFrameCount	=	0;
-
 function MoveEnemy(_frames = 15)
 {
 	// Get path

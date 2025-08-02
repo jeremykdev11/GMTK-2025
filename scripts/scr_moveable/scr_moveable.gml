@@ -35,18 +35,35 @@ function DoMove(_dir, _frames)
 	if (place_meeting(targetPos.x, targetPos.y, obj_wall)) return;
 	
 	// Enemy attack
-	if (place_meeting(targetPos.x, targetPos.y, obj_player))
+	if (object_index == obj_enemy)
 	{
-		attacking = true;
-		attackFrame = 0;
-		attackFrameCount = _frames;
+		if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
+		if (place_meeting(targetPos.x, targetPos.y, obj_player))
+		{
+			bumping = true;
+			bumpFrame = 0;
+			bumpFrameCount = _frames;
 		
-		facingDir = _dir;
+			facingDir = _dir;
 		
-		return;
+			return;
+		}
 	}
 	
-	//if (place_meeting(targetPos.x, targetPos.y, obj_enemy)) return;
+	// Player "bump" into enemy
+	if (object_index == obj_player)
+	{
+		if (place_meeting(targetPos.x, targetPos.y, obj_enemy))
+		{
+			bumping = true;
+			bumpFrame = 0;
+			bumpFrameCount = _frames;
+		
+			facingDir = _dir;
+		
+			return;
+		}
+	}
 	
 	// Start movement
 	moving = true;
