@@ -10,4 +10,4 @@ enum GAME_STATE
 }
 global.gameState = GAME_STATE.Initialize;
 
-display_set_gui_size(416, 320);
+display_set_gui_size(480, 704);
