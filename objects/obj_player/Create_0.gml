@@ -44,7 +44,6 @@ endBump = function()
 	totalMoves++;
 	if (global.gameState == GAME_STATE.PlayerMove)
 	{
-		hp--;
 		SetGameState(GAME_STATE.TimelineAction);
 	}
 }
