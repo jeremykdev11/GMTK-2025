@@ -6,7 +6,7 @@ image_xscale = choose(-1, 1);
 
 // Chance to spawn wall, else pick a random tile sprite
 
-if (irandom(100) < wallPercent)
+if (irandom(100) < wallPercent && !playerSpawn)
 {
 
 		var _struct = {view: false};
