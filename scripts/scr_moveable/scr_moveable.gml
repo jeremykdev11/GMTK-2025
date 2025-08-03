@@ -121,8 +121,8 @@ function RotateVectorByDir(_vector, _dir)
 
 function WorldToGrid(_x, _y)
 {
-	var _gridX = (_x - TILE_SIZE) / TILE_SIZE;
-	var _gridY = (_y - TILE_SIZE) / TILE_SIZE;
+	var _gridX = (_x - BOARD_X - 16) / TILE_SIZE;
+	var _gridY = (_y - BOARD_Y - 16) / TILE_SIZE;
 	
 	return new Vector(_gridX, _gridY);
 }

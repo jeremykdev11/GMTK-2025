@@ -3,12 +3,14 @@
 enemyMoveFrame = 0;
 enemyMoveDuration = 15;
 
+baseEnemyCount = 2;
+
 #region Pathfinding Grid
 
-gridX = TILE_SIZE / 2;
-gridY = TILE_SIZE / 2;
-gridWidth = (room_width / TILE_SIZE) - 1;	// # of cells wide
-gridHeight = (room_height / TILE_SIZE) - 1; // # of cells tall
+gridX = BOARD_X;
+gridY = BOARD_Y;
+gridWidth = BOARD_WIDTH;	// # of cells wide
+gridHeight = BOARD_HEIGHT; // # of cells tall
 
 // Create motion planning grid
 global.grid = mp_grid_create(gridX, gridY, gridWidth, gridHeight, TILE_SIZE, TILE_SIZE);
@@ -62,6 +64,14 @@ function MoveAllEnemies()
 	
 	// Reset grid to clear forbidden cells
 	ResetGrid();
+}
+
+function GetEnemySpawnCount()
+{
+	if !(instance_exists(obj_player)) return;
+	
+	var _increase = floor(obj_player.level / 4);
+	return baseEnemyCount + _increase;
 }
 
 #endregion
