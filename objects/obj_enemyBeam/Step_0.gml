@@ -7,6 +7,7 @@ if (bottomY < y)
 else if (topY < y)
 {
 	topY += 45;
+	bottomY = y + 10;
 }
 else
 {
