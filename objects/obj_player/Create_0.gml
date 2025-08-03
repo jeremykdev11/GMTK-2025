@@ -4,6 +4,7 @@ event_inherited();
 
 initialDepth = depth;
 animationFrame = spr_playerIdle_A;
+animationStep = 0;
 
 #region Player Stats
 

@@ -3,6 +3,7 @@
 event_inherited();
 
 initialDepth = depth;
+animationStep = irandom(60);
 
 function MoveEnemy(_frames = 15)
 {

@@ -30,3 +30,11 @@ endBump = function()
 }
 
 #endregion
+
+#region shader 
+
+u_texture = shader_get_uniform(sh_outline, "texture_Pixel");
+u_col = shader_get_uniform(sh_outline, "col");
+u_width = shader_get_uniform(sh_outline, "width");
+
+#endregion

@@ -4,6 +4,22 @@
 event_inherited();
 
 depth = -y + initialDepth;
+animationStep++;
+
+var _sinCurve = sin(animationStep * (pi / 32));
+
+if (animationStep % 30 = 0)
+{
+	if animationFrame = spr_playerIdle_B {
+		 animationFrame = spr_playerIdle_A;
+	}
+	else
+	{
+		 animationFrame = spr_playerIdle_B;
+	}
+}
+
+image_yscale = 1 + 0.025 * _sinCurve;
 
 #region Get Input
 
@@ -35,6 +51,11 @@ switch (global.gameState)
 }
 
 #endregion
+
+if (sprite_index != spr_playerMove)
+{
+	sprite_index = animationFrame;
+}
 
 // Update xp/level
 if (xp >= xpMax)
