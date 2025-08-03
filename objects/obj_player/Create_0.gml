@@ -12,9 +12,9 @@ animationStep = 0;
 
 #region Player Stats
 
-xp = 0;
-xpMax = 4;
-hp = 5;
+global.xp = 0;
+global.xpMax = 4;
+global.hp = 5;
 level = 1;
 totalMoves = 0;
 
