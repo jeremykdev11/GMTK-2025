@@ -1,6 +1,6 @@
 /// @desc Manage Action Duration
 
-if (global.gameState == GAME_STATE.TimelineAction)
+if (global.gameState == GAME_STATE.TimelineAction && !GamePaused())
 {
 	// Update action frame
 	actionFrame++;

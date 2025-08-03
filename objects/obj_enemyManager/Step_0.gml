@@ -1,6 +1,6 @@
 /// @desc Update Game State After Move
 
-if (global.gameState == GAME_STATE.EnemyMove)
+if (global.gameState == GAME_STATE.EnemyMove && !GamePaused())
 {
 	enemyMoveFrame++;
 	

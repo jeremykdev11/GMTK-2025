@@ -2,5 +2,5 @@
 
 depth = -y + initialDepth;
 
-animFrame++;
+if (!GamePaused()) animFrame++;
 if (animFrame > animDuration) instance_destroy();

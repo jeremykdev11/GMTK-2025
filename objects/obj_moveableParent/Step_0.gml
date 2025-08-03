@@ -1,6 +1,6 @@
 /// @desc Update Movement
 
-if (moving)
+if (moving && !GamePaused())
 {	
 	x = EaseOutCubic(moveFrame, startPos.x, targetPos.x - startPos.x, moveFrameCount);
 	y = EaseOutCubic(moveFrame, startPos.y, targetPos.y - startPos.y, moveFrameCount);
@@ -17,7 +17,7 @@ if (moving)
 	}
 }
 
-if (bumping)
+if (bumping && !GamePaused())
 {
 	if (bumpFrame < bumpFrameCount / 2)
 	{
