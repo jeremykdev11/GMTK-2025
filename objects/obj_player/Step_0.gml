@@ -3,6 +3,8 @@
 // Inherit movement updates
 event_inherited();
 
+depth = -y + initialDepth;
+
 #region Get Input
 
 leftPressed		= InputPressed(INPUT_VERB.LEFT);

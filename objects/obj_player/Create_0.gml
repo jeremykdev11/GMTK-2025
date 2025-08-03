@@ -2,6 +2,8 @@
 
 event_inherited();
 
+initialDepth = depth;
+
 #region Player Stats
 
 xp = 0;

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_swordTimeline",
-    "path":"sprites/spr_swordTimeline/spr_swordTimeline.yy",
+    "name":"spr_attackBasic",
+    "path":"sprites/spr_attackBasic/spr_attackBasic.yy",
   },
   "spriteMaskId":null,
   "visible":true,
