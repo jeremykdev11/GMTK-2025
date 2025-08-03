@@ -15,6 +15,6 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(#d1d5b4);
 
-draw_text_scribble(room_width/2, room_height/2 - TILE_SIZE, "Total Enemies Destroyed: " + string(global.xp));
+draw_text_scribble(room_width/2, room_height/2 - TILE_SIZE, "Total Enemies Destroyed: " + string(global.enemiesKilled));
 
 draw_text_scribble(room_width/2, room_height/2 + TILE_SIZE, "[wave]> Press Enter to Continue <");
