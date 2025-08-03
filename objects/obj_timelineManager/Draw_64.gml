@@ -12,16 +12,21 @@ if (global.gameState == GAME_STATE.LevelUp)
 	// Draw current timeline
 	var _actionCount = array_length(actionArray);
 	
-	var _displayWidth = _actionCount * iconSize + (_actionCount - 1) * iconSpacing;
+	var _displayWidth = _actionCount * iconSize + (_actionCount) * iconSpacing;
 	var _startX = room_width / 2 - _displayWidth / 2;
+	var _yHeight = 48;
+	var _barWidth = (2/3) + (_actionCount / 2)
+	draw_sprite_ext(spr_timeline, 0, _startX - 32, _yHeight + 2, _barWidth, 1, 0, c_white, 1);
+	
+	
 
 	for (var i = 0; i < _actionCount; i++)
 	{
 		var _offsetX = (iconSize + iconSpacing) * i;
-		draw_sprite(spr_timelineSlot, i == slotPosition, _startX + _offsetX, 32);
+		draw_sprite(spr_timelineSlot, i == slotPosition, _startX + _offsetX, _yHeight);
 		if (actionArray[i] != -1)
 		{
-			draw_sprite(spr_beatIcons, actionArray[i].subimg, _startX + _offsetX, 32);
+			draw_sprite(spr_beatIcons, actionArray[i].subimg, _startX + _offsetX, _yHeight);
 		}
 	}
 	
@@ -43,6 +48,9 @@ if (global.gameState == GAME_STATE.LevelUp)
 }
 else
 {
+	
+	
+	
 	// Get added actions from array
 	var _actionCount = 0;
 	for (var i = 0; i < array_length(actionArray); i++)
@@ -63,12 +71,17 @@ else
 	}
 	
 	var _displayWidth = _actionCount * iconSize + (_actionCount - 1) * iconSpacing;
+	
+	
 	var _startX = room_width / 2 - _displayWidth / 2;
+	var _yHeight = 48;
+	var _barWidth = (2/3) + (_actionCount / 2)
+	draw_sprite_ext(spr_timeline, 0, _startX - 32, _yHeight + 2, _barWidth, 1, 0, c_white, 1);
 
 	for (var i = 0; i < _actionCount; i++)
 	{
 		var _offsetX = (iconSize + iconSpacing) * i;
 		var _offsetY = (i == position) ? -8 : 0;
-		draw_sprite(spr_beatIcons, _activeActions[i].subimg, _startX + _offsetX, 32 + _offsetY);
+		draw_sprite(spr_beatIcons, _activeActions[i].subimg, _startX + _offsetX, _yHeight + _offsetY);
 	}
 }

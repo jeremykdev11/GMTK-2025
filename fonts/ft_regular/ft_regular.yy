@@ -138,6 +138,6 @@
     "name":"Default",
     "path":"texturegroups/Default",
   },
-  "TTFName":"${project_dir}\\fonts\\ft_gui\\Postal.ttf",
+  "TTFName":"C:\\Users\\drewg\\OneDrive\\Documents\\GitHub\\GMTK-2025\\fonts\\ft_regular\\Revved.otf",
   "usesSDF":false,
 }
