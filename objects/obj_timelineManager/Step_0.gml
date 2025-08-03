@@ -67,8 +67,8 @@ if (global.gameState == GAME_STATE.LevelUp)
 			audio_play_sound(snd_hover, 5, false);
 		}
 		
-		if (slotPosition < 0) slotPosition = 9;
-		if (slotPosition > 9) slotPosition = 0;
+		if (slotPosition < 0) slotPosition = 7;
+		if (slotPosition > 7) slotPosition = 0;
 		
 		// Pick slot
 		if (enterPressed)
