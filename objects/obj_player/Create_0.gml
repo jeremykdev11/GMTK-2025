@@ -15,6 +15,7 @@ animationStep = 0;
 global.xp = 0;
 global.xpMax = 4;
 global.hp = 5;
+hpMax = global.hp;
 level = 1;
 totalMoves = 0;
 
