@@ -116,6 +116,7 @@
     {"id":{"name":"obj_enemyManager","path":"objects/obj_enemyManager/obj_enemyManager.yy",},},
     {"id":{"name":"obj_enemySpawn","path":"objects/obj_enemySpawn/obj_enemySpawn.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
+    {"id":{"name":"obj_gameOver","path":"objects/obj_gameOver/obj_gameOver.yy",},},
     {"id":{"name":"obj_hitstop","path":"objects/obj_hitstop/obj_hitstop.yy",},},
     {"id":{"name":"obj_levelCreator","path":"objects/obj_levelCreator/obj_levelCreator.yy",},},
     {"id":{"name":"obj_mainMenu","path":"objects/obj_mainMenu/obj_mainMenu.yy",},},

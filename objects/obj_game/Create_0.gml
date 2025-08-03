@@ -7,7 +7,8 @@ enum GAME_STATE
 	PlayerMove,
 	TimelineAction,
 	EnemyMove,
-	LevelUp
+	LevelUp,
+	GameOver
 }
 global.gameState = GAME_STATE.Initialize;
 

@@ -76,3 +76,10 @@ if (xp >= xpMax)
 	level++;
 	obj_timelineManager.leveledUp = true;
 }
+
+// Die
+if (hp == 0)
+{
+	SetGameState(GAME_STATE.GameOver);
+	instance_destroy();
+}

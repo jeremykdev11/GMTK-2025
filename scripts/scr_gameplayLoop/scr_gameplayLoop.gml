@@ -17,6 +17,11 @@ function SetGameState(_state)
 			
 			with (obj_timelineManager) NewActions();
 			break;
+			
+		case GAME_STATE.GameOver:
+		
+			instance_create_depth(0, 0, 0, obj_gameOver);
+			break;
 	}
 	
 	// Set state

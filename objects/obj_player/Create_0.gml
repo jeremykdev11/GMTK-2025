@@ -14,7 +14,7 @@ animationStep = 0;
 
 xp = 0;
 xpMax = 4;
-hp = 3;
+hp = 5;
 level = 1;
 totalMoves = 0;
 
