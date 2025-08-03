@@ -4,7 +4,7 @@ if (room == r_mainmenu)
 {
 	//Draw Main Menu
 	scribble_anim_wave(1, 50, 0.1);
-	draw_set_font(ft_regular);
+	draw_set_font(ft_large);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	for (var i = 0; i < menuLength; i++)
@@ -14,38 +14,46 @@ if (room == r_mainmenu)
 		{
 			if (i == pos)
 			{
-				draw_set_color(#ffffff);
-				draw_text_scribble(TILE_SIZE, room_height/2 + (menuSpace * i), "[wave] = " + options[menu, i] + "[/wave]");
+				draw_set_color(#e35115);
+				draw_text_scribble(TILE_SIZE, room_height*0.75 + (menuSpace * i), "[wave] > " + options[menu, i] + "[/wave]");
 			}
-			else draw_text_scribble(TILE_SIZE, room_height/2 + (menuSpace * i), options[menu, i]);
+			else draw_text_scribble(TILE_SIZE, room_height*0.75 + (menuSpace * i), options[menu, i]);
 		}
 	}
 	
 	//Other Text
+	if (menu == 0)
+	draw_sprite(spr_logo, 0, 0, 0);
 
-	//if (menu == 2) //How to Play
-	//{
-	//	draw_set_font(global.fontS);
-	//	draw_set_halign(fa_left);
-	//	draw_set_valign(fa_top);
-	//	draw_set_color(c_white);
+	if (menu == 1) //How to Play
+	{
+		draw_set_font(ft_large);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_set_color(#ffffff);
 		
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2, "[#cbd1be]Move with [#e0a46e]W/A/D [#cbd1be]or");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 8, "[#e0a46e]</^/>[#cbd1be]. Reset with [#e0a46e]R[#cbd1be].");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 20, "[#cbd1be]Go back in time and work");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 28, "[#cbd1be]alongside your past self");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 36, "[#cbd1be]to [#e0a46e]reach the cheese!");
-	//}
-	//if (menu == 3) //Credits
-	//{
-	//	draw_set_font(global.fontS);
-	//	draw_set_halign(fa_left);
-	//	draw_set_valign(fa_top);
-	//	draw_set_color(c_white);
+		draw_text_scribble(room_width/2, room_width*0.25, "[#ffffff]Move with [#e35115]WASD [#ffffff]or");
+		draw_text_scribble(room_width/2, room_width*0.25 + 32, "[#e35115]Arrow Keys[#ffffff]. Select menu");
+		draw_text_scribble(room_width/2, room_width*0.25 + 64, "[#ffffff]menu items with [#e35115]Enter[#ffffff].");
+		draw_text_scribble(room_width/2, room_width*0.25 + 96, "[#ffffff]Add new [#e35115]beats [#ffffff]to your");
+		draw_text_scribble(room_width/2, room_width*0.25 + 128, "[#e35115]tracklist [#ffffff]to defeat");
+		draw_text_scribble(room_width/2, room_width*0.25 + 160, "[#ffffff]oncoming waves of enemies!");
+	}
+	if (menu == 2) //Credits
+	{	
+		scribble_anim_wave(1, 50, 0.1);
+		draw_set_font(ft_large);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_set_color(#ffffff);
 		
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2, "[#cbd1be]Art, Programming, Game");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 8, "[#cbd1be]Design by [#e0a46e]Jeremy K");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 20, "[#cbd1be]Music by [#e0a46e]Aidan Todd [#cbd1be]+ [#e0a46e]Josh F");
-	//	draw_text_scribble(TILESIZE, GAMEHEIGHT/2 + 32, "[#cbd1be]Sound Design by [#e0a46e]Luminious");
-	//}
+		draw_text_scribble(room_width/2, room_width*0.25, "[#ffffff]Programming, Game Design");
+		draw_text_scribble(room_width/2, room_width*0.25 + 32, "[#e35115][wave]Jeremy K");
+		
+		draw_text_scribble(room_width/2, room_width*0.25 + 80, "[#ffffff]Art, Programming");
+		draw_text_scribble(room_width/2, room_width*0.25 + 112, "[#e35115][wave]Drew G");
+		
+		draw_text_scribble(room_width/2, room_width*0.25 + 160, "[#ffffff]Composing");
+		draw_text_scribble(room_width/2, room_width*0.25 + 192, "[#e35115][wave]Joana L");
+	}
 }

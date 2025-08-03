@@ -15,7 +15,7 @@ options[2, 2] = "Back";
 
 pos = 0;
 menu = 0;
-menuSpace = 16;
+menuSpace = 32;
 menuLength = array_length(options[menu]);
 menuLowest = 0;
 menuHighest = 2;

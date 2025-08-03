@@ -8,5 +8,5 @@ if (room == r_load)
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
 
-	draw_text_scribble(room_width/2, room_height/2, "[wave]= Click Screen to Focus <");
+	draw_text_scribble(room_width/2, room_height/2, "[wave]> Click Screen to Focus <");
 }
