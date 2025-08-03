@@ -1,13 +1,13 @@
 /// @desc Setup Timeline
 
 position = 0;
-actionArray = array_create(10, -1);
+actionArray = array_create(8, -1);
 
 actionFrame = 0;
 actionDuration = 15;
 
-iconSize = 32;
-iconSpacing = 8;
+iconSize = 48;
+iconSpacing = 0;
 
 leveledUp = false;
 
@@ -170,7 +170,7 @@ function DoCurrentAction()
 
 function ResetTimeline()
 {
-	actionArray = array_create(10, -1);
+	actionArray = array_create(8, -1);
 	//actionArray[0] = actionSword;
 	//actionArray[3] = actionCross;
 	//actionArray[8] = actionGun;
