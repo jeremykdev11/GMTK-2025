@@ -123,6 +123,7 @@
     {"id":{"name":"obj_transitionIn","path":"objects/obj_transitionIn/obj_transitionIn.yy",},},
     {"id":{"name":"obj_transitionOut","path":"objects/obj_transitionOut/obj_transitionOut.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
+    {"id":{"name":"obj_wordParticle","path":"objects/obj_wordParticle/obj_wordParticle.yy",},},
     {"id":{"name":"r_gameplay","path":"rooms/r_gameplay/r_gameplay.yy",},},
     {"id":{"name":"r_load","path":"rooms/r_load/r_load.yy",},},
     {"id":{"name":"r_mainmenu","path":"rooms/r_mainmenu/r_mainmenu.yy",},},

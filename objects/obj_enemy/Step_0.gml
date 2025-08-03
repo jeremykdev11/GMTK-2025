@@ -14,4 +14,5 @@ if (place_meeting(x, y, obj_attack))
 {
 	with (obj_player) xp++;
 	instance_destroy();
+	instance_create_depth(x, y, depth - 10, obj_wordParticle, {wordString: "Yeahhh!", color: c_blue})
 }
