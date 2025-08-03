@@ -571,6 +571,7 @@
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},},
     {"id":{"name":"spr_enemySpawn","path":"sprites/spr_enemySpawn/spr_enemySpawn.yy",},},
     {"id":{"name":"spr_gunTimeline","path":"sprites/spr_gunTimeline/spr_gunTimeline.yy",},},
+    {"id":{"name":"spr_healthBar","path":"sprites/spr_healthBar/spr_healthBar.yy",},},
     {"id":{"name":"spr_hole","path":"sprites/spr_hole/spr_hole.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_playerIdle_A","path":"sprites/spr_playerIdle_A/spr_playerIdle_A.yy",},},
