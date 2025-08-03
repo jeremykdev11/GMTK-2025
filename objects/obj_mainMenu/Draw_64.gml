@@ -22,6 +22,8 @@ if (room == r_mainmenu)
 	}
 	
 	//Other Text
+	if (menu == 0)
+	draw_sprite(spr_logo, 0, 0, 0);
 
 	if (menu == 1) //How to Play
 	{

@@ -574,6 +574,7 @@
     {"id":{"name":"spr_gunTimeline","path":"sprites/spr_gunTimeline/spr_gunTimeline.yy",},},
     {"id":{"name":"spr_healthBar","path":"sprites/spr_healthBar/spr_healthBar.yy",},},
     {"id":{"name":"spr_hole","path":"sprites/spr_hole/spr_hole.yy",},},
+    {"id":{"name":"spr_logo","path":"sprites/spr_logo/spr_logo.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_playerIdle_A","path":"sprites/spr_playerIdle_A/spr_playerIdle_A.yy",},},
     {"id":{"name":"spr_playerIdle_B","path":"sprites/spr_playerIdle_B/spr_playerIdle_B.yy",},},
