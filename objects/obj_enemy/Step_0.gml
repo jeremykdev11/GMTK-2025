@@ -6,6 +6,11 @@ depth = -y + initialDepth;
 
 animationStep++;
 
+if animationStep > 0
+{
+	visible = true;	
+}
+
 var _sinCurve = sin(animationStep * (pi / 32));
 
 image_yscale = 1 + 0.025 * _sinCurve;
