@@ -16,6 +16,7 @@ xp = 0;
 xpMax = 4;
 hp = 3;
 level = 1;
+totalMoves = 0;
 
 #endregion
 
@@ -32,11 +33,13 @@ function MovePlayer(_dir, _amount, _frames = 15)
 
 endMove = function()
 {
+	totalMoves++;
 	if (global.gameState == GAME_STATE.PlayerMove) SetGameState(GAME_STATE.TimelineAction);
 }
 
 endBump = function()
 {
+	totalMoves++;
 	if (global.gameState == GAME_STATE.PlayerMove)
 	{
 		hp--;

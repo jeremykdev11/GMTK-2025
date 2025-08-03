@@ -74,6 +74,17 @@ array_push(allActions, actionCross);
 function DoCurrentAction()
 {
 	// Run action effect at current position
+	if (actionArray[position] == -1)
+	{
+		var _foundInitialAction = false;
+		while (!_foundInitialAction)
+		{
+			position++;
+			if (position >= array_length(actionArray)) position = 0;
+		
+			if (actionArray[position] != -1) _foundInitialAction = true;
+		}
+	}
 	actionArray[position].DoAction();
 	
 	var _foundAction = false;

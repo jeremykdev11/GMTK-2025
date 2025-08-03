@@ -70,7 +70,7 @@ function GetEnemySpawnCount()
 {
 	if !(instance_exists(obj_player)) return;
 	
-	var _increase = floor(obj_player.level / 4);
+	var _increase = floor(obj_player.level / 3);
 	return baseEnemyCount + _increase;
 }
 

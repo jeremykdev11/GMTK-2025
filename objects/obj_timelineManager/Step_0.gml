@@ -54,7 +54,7 @@ if (global.gameState == GAME_STATE.LevelUp)
 		if (enterPressed)
 		{
 			actionArray[slotPosition] = newActions[newActionPosition];
-			SetGameState(GAME_STATE.PlayerMove);
+			SetGameState(GAME_STATE.EnemyMove);
 		}
 	}
 	
