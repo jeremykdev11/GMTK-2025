@@ -40,7 +40,7 @@ endMove = function()
 
 endBump = function()
 {
-	audio_play_sound(snd_explodeShort, 5, false);
+	//audio_play_sound(snd_explodeShort, 5, false);
 	totalMoves++;
 	if (global.gameState == GAME_STATE.PlayerMove)
 	{

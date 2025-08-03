@@ -33,5 +33,5 @@ function MoveEnemy(_frames = 15)
 endBump = function()
 {
 	audio_play_sound(snd_explodeShort, 5, false);
-	with (obj_player) hp--;
+	with (obj_player) global.hp--;
 }
