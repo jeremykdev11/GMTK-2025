@@ -29,6 +29,9 @@ switch (global.gameState)
 	}
 	
 	break;
+	case GAME_STATE.TimelineAction:
+		sprite_index = animationFrame;
+	break;
 }
 
 #endregion

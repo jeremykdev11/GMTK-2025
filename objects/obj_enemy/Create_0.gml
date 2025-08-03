@@ -2,7 +2,7 @@
 
 event_inherited();
 
-
+initialDepth = depth;
 
 function MoveEnemy(_frames = 15)
 {

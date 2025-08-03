@@ -3,6 +3,7 @@
 event_inherited();
 
 initialDepth = depth;
+animationFrame = spr_playerIdle_A;
 
 #region Player Stats
 
@@ -21,6 +22,7 @@ function MovePlayer(_dir, _amount, _frames = 15)
 	
 	// TEMP: Set image
 	image_index = facingDir;
+	sprite_index = spr_playerMove;
 }
 
 endMove = function()

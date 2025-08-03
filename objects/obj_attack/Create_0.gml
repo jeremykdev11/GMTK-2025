@@ -1,6 +1,8 @@
 /// @desc Generic Action Setup
 
-if place_meeting(x, y, obj_wall) 
+attackColor = #e35115;
+
+if place_meeting(x, y, obj_wall) || place_empty(x, y)
 {
 	instance_destroy()
 }
