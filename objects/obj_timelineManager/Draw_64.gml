@@ -81,7 +81,7 @@ else
 	for (var i = 0; i < _actionCount; i++)
 	{
 		var _offsetX = (iconSize + iconSpacing) * i;
-		var _offsetY = (i == position) ? -8 : 0;
+		var _offsetY = (_activeActions[i] == actionArray[position]) ? -2*sin(get_timer()/200000) : 0;
 		draw_sprite(spr_beatIcons, _activeActions[i].subimg, _startX + _offsetX, _yHeight + _offsetY);
 	}
 }
