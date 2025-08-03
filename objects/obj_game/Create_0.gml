@@ -3,6 +3,7 @@ enum GAME_STATE
 {
 	Initialize,
 	MainMenu,
+	GameLoad,
 	PlayerMove,
 	TimelineAction,
 	EnemyMove,

@@ -29,6 +29,15 @@ if (global.gameState == GAME_STATE.LevelUp)
 	enterPressed	= InputPressed(INPUT_VERB.ACTION);
 	upPressed		= InputPressed(INPUT_VERB.UP);
 	downPressed		= InputPressed(INPUT_VERB.DOWN);
+	
+	// Animate attack pattern
+	attackPatternFrame++;
+	if (attackPatternFrame >= attackPatternDuration)
+	{
+		attackPatternFrame = 0;
+		attackPatternState++;
+		if (attackPatternState >= 4) attackPatternState = 0;
+	}
 }
 
 #endregion

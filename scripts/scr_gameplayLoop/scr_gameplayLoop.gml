@@ -12,6 +12,11 @@ function SetGameState(_state)
 		
 			with (obj_enemyManager) MoveAllEnemies();
 			break;
+			
+		case GAME_STATE.LevelUp:
+			
+			with (obj_timelineManager) NewActions();
+			break;
 	}
 	
 	// Set state

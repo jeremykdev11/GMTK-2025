@@ -1,8 +1,11 @@
-function Action(_sprite, _attack, _effect) constructor
+function Action(_sprite, _pattern, _attack, _effect) constructor
 {
 	// Attack pattern as an array of vectors
 	// -1 if none
 	attack = _attack;
+	
+	// Sprite of attack pattern
+	pattern = _pattern;
 	
 	// Additional effect of action as a function
 	// -1 if none

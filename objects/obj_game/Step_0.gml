@@ -8,6 +8,12 @@ if (global.gameState == GAME_STATE.Initialize)
 	}
 }
 
+// Start Game
+if (global.gameState == GAME_STATE.GameLoad && room = r_gameplay)
+{
+	SetGameState(GAME_STATE.LevelUp);
+}
+
 if (room == r_gameplay)
 {
 	// Screenshake

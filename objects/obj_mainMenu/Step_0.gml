@@ -28,7 +28,7 @@ if (global.gameState == GAME_STATE.MainMenu && !GamePaused())
 				switch(pos)
 				{
 					case 0: // Play
-						DoTransition(r_gameplay, GAME_STATE.PlayerMove);
+						DoTransition(r_gameplay, GAME_STATE.GameLoad);
 						break;
 				
 					case 1: // How to Play
