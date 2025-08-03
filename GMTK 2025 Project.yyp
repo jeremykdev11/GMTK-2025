@@ -571,6 +571,7 @@
     {"id":{"name":"spr_swordTimeline","path":"sprites/spr_swordTimeline/spr_swordTimeline.yy",},},
     {"id":{"name":"spr_tiles","path":"sprites/spr_tiles/spr_tiles.yy",},},
     {"id":{"name":"spr_train","path":"sprites/spr_train/spr_train.yy",},},
+    {"id":{"name":"spr_walkDust","path":"sprites/spr_walkDust/spr_walkDust.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
     {"id":{"name":"spr_yellowLine","path":"sprites/spr_yellowLine/spr_yellowLine.yy",},},
   ],

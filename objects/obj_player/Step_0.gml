@@ -44,6 +44,17 @@ switch (global.gameState)
 		if (downPressed)	MovePlayer(DIR.Down, TILE_SIZE);
 	}
 	
+	// Spawn particles when moving
+	if (moving || bumping)
+	{
+		var _rand = irandom(3);
+		if (_rand == 0)
+		{
+			part_system_depth(global.pSystem, depth + 1);
+			part_particles_create(global.pSystem, x, y, global.dustParticle, 1);
+		}
+	}
+	
 	break;
 	case GAME_STATE.TimelineAction:
 		sprite_index = animationFrame;

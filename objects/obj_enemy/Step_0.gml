@@ -27,3 +27,14 @@ if (bumpFrame == 8)
 {
 	ScreenShake(50);
 }
+
+// Move particles
+if (moving || bumping)
+{
+	var _rand = irandom(3);
+	if (_rand == 0)
+	{
+		part_system_depth(global.pSystem, depth + 1);
+		part_particles_create(global.pSystem, x, y, global.dustParticle, 1);
+	}
+}
