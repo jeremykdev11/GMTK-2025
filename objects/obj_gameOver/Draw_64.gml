@@ -15,4 +15,4 @@ draw_set_color(c_white);
 
 draw_text_scribble(room_width/2, room_height/2 - TILE_SIZE, "Total Enemies Destroyed: " + string(global.xp));
 
-draw_text_scribble(room_width/2, room_height/2 + TILE_SIZE, "[wave]= Press Enter to Continue <");
+draw_text_scribble(room_width/2, room_height/2 + TILE_SIZE, "[wave]> Press Enter to Continue <");
