@@ -4,7 +4,7 @@
 if (global.gameState == GAME_STATE.LevelUp)
 {
 	draw_set_color(c_black);
-	draw_set_alpha(0.5);
+	draw_set_alpha(0.75);
 	draw_rectangle(0, 0, room_width, room_height, false);
 	draw_set_color(c_white);
 	draw_set_alpha(1);
@@ -43,6 +43,12 @@ if (global.gameState == GAME_STATE.LevelUp)
 		draw_sprite_ext(spr_beatIcons, newActions[i].subimg, _startX + _offsetX, 128, 2, 2, 0, c_white, 1);
 	}
 	
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_set_color(#ffffff);
+	
+	draw_text_scribble(room_width/2, 240, "Select a new beat, then");
+	draw_text_scribble(room_width/2, 272, "add it to your tracklist!");
 	// Draw new action pattern
 	//draw_sprite(newActions[newActionPosition].pattern, attackPatternState, room_width/2, 128);
 }
