@@ -8,7 +8,7 @@
 var _healthX = 128;
 var _healthY = room_height - 64;
 
-draw_sprite_ext(spr_healthBar, 0, _healthX, _healthY, 2, 1, 0, c_white, 1);
+draw_sprite_ext(spr_healthBar, 0, _healthX, _healthY, 1.8, 1, 0, c_white, 1);
 
 for (var _i = 0; _i < hpMax; _i++)
 {
@@ -18,9 +18,11 @@ for (var _i = 0; _i < hpMax; _i++)
 	}
 	else
 	{
-		draw_set_color(#bc115f);
+		var _color = merge_color(#bc115f, #119fa1, _i / hpMax)
+		draw_set_color(_color);
 	}
 	var _width = 16
 	var _space = _i * (_width + 8)
-	draw_rectangle(_healthX + 48 + (_width / 2) + _space, _healthY + 16, _healthX + 48 - (_width / 2) + _space, _healthY + 36, false);
+	draw_roundrect_ext(_healthX + 48 + (_width / 2) + _space, _healthY + (4 - _i) * 4, _healthX + 48 - (_width / 2) + _space, _healthY + 34,
+	6, 6, false);
 }

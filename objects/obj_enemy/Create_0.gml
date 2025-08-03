@@ -6,7 +6,7 @@ instance_create_layer(x,y, "Game", obj_enemyBeam);
 
 initialDepth = depth;
 image_speed = 0.5;
-animationStep = irandom_range(-40, 0);
+animationStep = -15;
 visible = false;	
 
 function MoveEnemy(_frames = 15)
