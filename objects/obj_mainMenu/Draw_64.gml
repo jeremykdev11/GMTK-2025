@@ -34,7 +34,7 @@ if (room == r_mainmenu)
 		
 		draw_text_scribble(room_width/2, room_width*0.25, "[#d1d5b4]Move with [#e35115]WASD [#d1d5b4]or");
 		draw_text_scribble(room_width/2, room_width*0.25 + 32, "[#e35115]Arrow Keys[#d1d5b4]. Select menu");
-		draw_text_scribble(room_width/2, room_width*0.25 + 64, "[#d1d5b4]menu items with [#e35115]Enter[#d1d5b4].");
+		draw_text_scribble(room_width/2, room_width*0.25 + 64, "[#d1d5b4]items with [#e35115]Enter[#d1d5b4] or [#e35115]Space.");
 		draw_text_scribble(room_width/2, room_width*0.25 + 96, "[#d1d5b4]Add new [#e35115]beats [#d1d5b4]to your");
 		draw_text_scribble(room_width/2, room_width*0.25 + 128, "[#e35115]tracklist [#d1d5b4]to defeat");
 		draw_text_scribble(room_width/2, room_width*0.25 + 160, "[#d1d5b4]oncoming waves of enemies!");
