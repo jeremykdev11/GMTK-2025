@@ -15,8 +15,7 @@ if (global.gameState == GAME_STATE.MainMenu && !GamePaused())
 	// Menu Move Sounds
 	if (upPressed || downPressed)
 	{
-		//audio_sound_pitch(sndMenuMove, random_range(0.93, 1.07));
-		//audio_play_sound(sndMenuMove, 5, false);
+		audio_play_sound(snd_hover, 5, false);
 	}
 	
 	#region Interact with Main Menu
@@ -29,6 +28,7 @@ if (global.gameState == GAME_STATE.MainMenu && !GamePaused())
 				{
 					case 0: // Play
 						DoTransition(r_gameplay, GAME_STATE.GameLoad);
+						audio_play_sound(snd_select, 5, false);
 						break;
 				
 					case 1: // How to Play

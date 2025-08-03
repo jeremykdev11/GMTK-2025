@@ -29,6 +29,7 @@ function MovePlayer(_dir, _amount, _frames = 15)
 	// TEMP: Set image
 	image_index = facingDir;
 	sprite_index = spr_playerMove;
+	audio_play_sound(snd_move, 5, false);
 }
 
 endMove = function()
@@ -39,6 +40,7 @@ endMove = function()
 
 endBump = function()
 {
+	audio_play_sound(snd_explodeShort, 5, false);
 	totalMoves++;
 	if (global.gameState == GAME_STATE.PlayerMove)
 	{

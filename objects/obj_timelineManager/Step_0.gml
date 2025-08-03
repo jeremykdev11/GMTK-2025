@@ -33,19 +33,39 @@ if (global.gameState == GAME_STATE.LevelUp)
 	// New action selection
 	if (newActionSelected == false)
 	{
-		if (leftPressed) newActionPosition--;
-		if (rightPressed) newActionPosition++;
+		if (leftPressed)
+		{
+			newActionPosition--;
+			audio_play_sound(snd_hover, 5, false);
+		}
+		if (rightPressed)
+		{
+			newActionPosition++;
+			audio_play_sound(snd_hover, 5, false);
+		}
 		
 		if (newActionPosition < 0) newActionPosition = 2;
 		if (newActionPosition > 2) newActionPosition = 0;
 		
-		if (enterPressed) newActionSelected = true;
+		if (enterPressed)
+		{
+			newActionSelected = true;
+			audio_play_sound(snd_select, 5, false);
+		}
 	}
 	// Timeline slot selection
 	else
 	{
-		if (leftPressed) slotPosition--;
-		if (rightPressed) slotPosition++;
+		if (leftPressed) 
+		{
+			slotPosition--;
+			audio_play_sound(snd_hover, 5, false);
+		}
+		if (rightPressed)
+		{
+			slotPosition++;
+			audio_play_sound(snd_hover, 5, false);
+		}
 		
 		if (slotPosition < 0) slotPosition = 9;
 		if (slotPosition > 9) slotPosition = 0;
@@ -54,6 +74,7 @@ if (global.gameState == GAME_STATE.LevelUp)
 		if (enterPressed)
 		{
 			actionArray[slotPosition] = newActions[newActionPosition];
+			audio_play_sound(snd_select, 5, false);
 			SetGameState(GAME_STATE.EnemyMove);
 		}
 	}

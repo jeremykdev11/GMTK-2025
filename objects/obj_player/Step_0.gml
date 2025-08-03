@@ -80,6 +80,7 @@ if (xp >= xpMax)
 // Die
 if (hp == 0)
 {
+	audio_play_sound(snd_explodeLong, 5, false);
 	SetGameState(GAME_STATE.GameOver);
 	instance_destroy();
 }
