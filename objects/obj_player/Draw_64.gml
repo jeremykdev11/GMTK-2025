@@ -24,5 +24,5 @@ for (var _i = 0; _i < hpMax; _i++)
 	var _width = 16
 	var _space = _i * (_width + 8)
 	draw_roundrect_ext(_healthX + 48 + (_width / 2) + _space, _healthY + (4 - _i) * 4, _healthX + 48 - (_width / 2) + _space, _healthY + 34,
-	6, 6, false);
+	4, 4, false);
 }

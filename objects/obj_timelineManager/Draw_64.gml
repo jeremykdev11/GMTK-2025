@@ -6,7 +6,7 @@ if (global.gameState == GAME_STATE.LevelUp)
 	draw_set_color(c_black);
 	draw_set_alpha(0.75);
 	draw_rectangle(0, 0, room_width, room_height, false);
-	draw_set_color(c_white);
+	draw_set_color(#d1d5b4);
 	draw_set_alpha(1);
 	
 	// Draw current timeline
@@ -30,6 +30,9 @@ if (global.gameState == GAME_STATE.LevelUp)
 		}
 	}
 	
+	draw_set_color(#444444);
+	draw_rectangle(0, 170, room_width, 300, false)
+	
 	// Draw new action options
 	_actionCount = array_length(newActions)
 	
@@ -45,10 +48,10 @@ if (global.gameState == GAME_STATE.LevelUp)
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_set_color(#ffffff);
+	draw_set_color(#d1d5b4);
 	
 	draw_text_scribble(room_width/2, 240, "Select a new beat, then");
-	draw_text_scribble(room_width/2, 272, "add it to your tracklist!");
+	draw_text_scribble(room_width/2, 255, "add it to your tracklist!");
 	// Draw new action pattern
 	//draw_sprite(newActions[newActionPosition].pattern, attackPatternState, room_width/2, 128);
 }

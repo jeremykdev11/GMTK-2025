@@ -6,7 +6,7 @@ var _mainSurf = surface_create(_width, 100);
 
 
 surface_set_target(_mainSurf);
-draw_clear_alpha(c_white, 0);
+draw_clear_alpha(#d1d5b4, 0);
 
 #region draw
 
