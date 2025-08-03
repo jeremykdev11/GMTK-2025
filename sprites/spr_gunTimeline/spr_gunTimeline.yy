@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Actions",
-    "path":"folders/Sprites/Actions.yy",
+    "name":"Timeline",
+    "path":"folders/Sprites/Timeline.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

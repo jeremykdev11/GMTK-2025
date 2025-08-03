@@ -1,4 +1,6 @@
-/// @desc Manage Action Duration
+/// @desc Manage Timeline and Actions
+
+#region Actions
 
 if (global.gameState == GAME_STATE.TimelineAction && !GamePaused())
 {
@@ -17,3 +19,16 @@ if (global.gameState == GAME_STATE.TimelineAction && !GamePaused())
 		else SetGameState(GAME_STATE.EnemyMove);
 	}
 }
+
+#endregion
+
+#region Level Up Phase
+
+if (global.gameState == GAME_STATE.LevelUp)
+{
+	enterPressed	= InputPressed(INPUT_VERB.ACTION);
+	upPressed		= InputPressed(INPUT_VERB.UP);
+	downPressed		= InputPressed(INPUT_VERB.DOWN);
+}
+
+#endregion

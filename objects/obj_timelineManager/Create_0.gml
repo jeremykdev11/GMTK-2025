@@ -1,7 +1,7 @@
 /// @desc Setup Timeline
 
 position = 0;
-actionList = ds_list_create();
+actionArray = array_create(10, -1);
 
 actionFrame = 0;
 actionDuration = 15;
@@ -54,18 +54,24 @@ actionCross = new Action(
 function DoCurrentAction()
 {
 	// Run action effect at current position
-	actionList[| position].DoAction();
+	actionArray[position].DoAction();
 	
-	position++;
-	if (position >= ds_list_size(actionList)) position = 0;
+	var _foundAction = false;
+	while (!_foundAction)
+	{
+		position++;
+		if (position >= array_length(actionArray)) position = 0;
+		
+		if (actionArray[position] != -1) _foundAction = true;
+	}
 }
 
 function ResetTimeline()
 {
-	ds_list_empty(actionList);
-	ds_list_add(actionList, actionSword);
-	ds_list_add(actionList, actionGun);
-	ds_list_add(actionList, actionCross);
+	actionArray = array_create(10, -1);
+	actionArray[0] = actionSword;
+	actionArray[3] = actionCross;
+	actionArray[8] = actionGun;
 	position = 0;
 }
 

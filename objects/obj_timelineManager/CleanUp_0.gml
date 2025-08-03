@@ -1,3 +1,3 @@
 /// @desc List Cleanup
 
-ds_list_destroy(actionList);
+//ds_list_destroy(actionList);
