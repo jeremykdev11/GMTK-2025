@@ -3,6 +3,7 @@
 event_inherited();
 
 initialDepth = depth;
+image_speed = 0.5;
 animationStep = irandom(60);
 
 function MoveEnemy(_frames = 15)
@@ -24,7 +25,7 @@ function MoveEnemy(_frames = 15)
 	MoveCharacterByVec(_vec);
 	
 	// TEMP: Set image
-	image_index = facingDir;
+	//image_index = facingDir;
 }
 
 endBump = function()

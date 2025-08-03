@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite15",
-    "path":"sprites/Sprite15/Sprite15.yy",
+    "name":"spr_attack",
+    "path":"sprites/spr_attack/spr_attack.yy",
   },
   "spriteMaskId":null,
   "visible":true,
