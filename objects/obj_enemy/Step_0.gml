@@ -26,6 +26,7 @@ if (place_meeting(x, y, obj_attack))
 	instance_create_depth(x, y + irandom_range(-5, 5), depth - 10, obj_wordParticle, {wordString: _word, color: _color})
 	ScreenShake(50);
 	HitStop();
+	global.enemiesKilled++;
 	
 	instance_destroy();
 }
