@@ -1,4 +1,4 @@
-function Action(_subimg, _pattern, _attack, _effect) constructor
+function Action(_subimg, _pattern, _attack, _effect, _preEffect = -1) constructor
 {
 	// Attack pattern as an array of vectors
 	// -1 if none
@@ -11,12 +11,20 @@ function Action(_subimg, _pattern, _attack, _effect) constructor
 	// -1 if none
 	effect = _effect;
 	
+	preEffect = _preEffect;
+	
 	// Sprite on timeline
 	subimg = _subimg;
 	
 	static DoAction = function()
 	{
 		if !(instance_exists(obj_player)) return;
+		
+		// Effect
+		if (preEffect != -1)
+		{
+			attack = preEffect();
+		}
 		
 		// Attack
 		if (attack != -1)
