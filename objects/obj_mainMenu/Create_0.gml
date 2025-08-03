@@ -25,7 +25,7 @@ function MenuJump(_menu, _pos)
 	menu = _menu;
 	pos = _pos;
 	
-	//audio_play_sound(sndSelect, 5, false);
+	audio_play_sound(snd_select, 5, false);
 	
 }
 

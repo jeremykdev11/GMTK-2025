@@ -1,4 +1,4 @@
-function Action(_sprite, _pattern, _attack, _effect) constructor
+function Action(_subimg, _pattern, _attack, _effect) constructor
 {
 	// Attack pattern as an array of vectors
 	// -1 if none
@@ -12,7 +12,7 @@ function Action(_sprite, _pattern, _attack, _effect) constructor
 	effect = _effect;
 	
 	// Sprite on timeline
-	sprite = _sprite;
+	subimg = _subimg;
 	
 	static DoAction = function()
 	{

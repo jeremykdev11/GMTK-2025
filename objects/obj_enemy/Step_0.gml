@@ -15,6 +15,7 @@ if (place_meeting(x, y, obj_attack))
 {
 	with (obj_player) xp++;
 	
+	if !audio_is_playing(snd_explode) audio_play_sound(snd_explode, 5, false);
 	instance_create_depth(x, y, depth - 10, obj_wordParticle, {wordString: "Yeahhh!", color: c_blue})
 	ScreenShake(50);
 	HitStop();
