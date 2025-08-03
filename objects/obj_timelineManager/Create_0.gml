@@ -14,6 +14,7 @@ leveledUp = false;
 newActions = array_create(3);
 
 // Level up timeline interaction
+newActionSelected = false;
 newActionPosition = 0;
 slotPosition = 0;
 
@@ -96,6 +97,11 @@ function ResetTimeline()
 
 function NewActions()
 {
+	// Set variables
+	newActionSelected = false;
+	newActionPosition = 0;
+	slotPosition = 0;
+	
 	// Pick 3 random actions
 	var _count = array_length(allActions);
 	var _nums = array_create(array_length(newActions), -1);

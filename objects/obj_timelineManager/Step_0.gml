@@ -27,8 +27,36 @@ if (global.gameState == GAME_STATE.TimelineAction && !GamePaused())
 if (global.gameState == GAME_STATE.LevelUp)
 {
 	enterPressed	= InputPressed(INPUT_VERB.ACTION);
-	upPressed		= InputPressed(INPUT_VERB.UP);
-	downPressed		= InputPressed(INPUT_VERB.DOWN);
+	leftPressed		= InputPressed(INPUT_VERB.LEFT);
+	rightPressed	= InputPressed(INPUT_VERB.RIGHT);
+	
+	// New action selection
+	if (newActionSelected == false)
+	{
+		if (leftPressed) newActionPosition--;
+		if (rightPressed) newActionPosition++;
+		
+		if (newActionPosition < 0) newActionPosition = 2;
+		if (newActionPosition > 2) newActionPosition = 0;
+		
+		if (enterPressed) newActionSelected = true;
+	}
+	// Timeline slot selection
+	else
+	{
+		if (leftPressed) slotPosition--;
+		if (rightPressed) slotPosition++;
+		
+		if (slotPosition < 0) slotPosition = 9;
+		if (slotPosition > 9) slotPosition = 0;
+		
+		// Pick slot
+		if (enterPressed)
+		{
+			actionArray[slotPosition] = newActions[newActionPosition];
+			SetGameState(GAME_STATE.PlayerMove);
+		}
+	}
 	
 	// Animate attack pattern
 	attackPatternFrame++;

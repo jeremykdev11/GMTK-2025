@@ -18,7 +18,7 @@ if (global.gameState == GAME_STATE.LevelUp)
 	for (var i = 0; i < _actionCount; i++)
 	{
 		var _offsetX = (iconSize + iconSpacing) * i;
-		draw_sprite(spr_timelineSlot, 0, _startX + _offsetX, 32);
+		draw_sprite(spr_timelineSlot, i == slotPosition, _startX + _offsetX, 32);
 		if (actionArray[i] != -1)
 		{
 			draw_sprite(actionArray[i].sprite, 0, _startX + _offsetX, 32);
