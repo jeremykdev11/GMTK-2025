@@ -6,7 +6,7 @@ if (global.gameState == GAME_STATE.TimelineAction)
 	actionFrame++;
 	
 	// End action after duration
-	if (actionFrame > actionDuration)
+	if (actionFrame > actionDuration && !instance_exists(obj_attack))
 	{
 		actionFrame = 0;
 		if (leveledUp)
