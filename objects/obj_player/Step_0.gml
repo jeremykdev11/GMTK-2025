@@ -69,16 +69,16 @@ if (sprite_index != spr_playerMove)
 }
 
 // Update xp/level
-if (xp >= xpMax)
+if (global.xp >= global.xpMax)
 {
-	xp -= xpMax;
-	xpMax += 2;
+	global.xp -= global.xpMax;
+	global.xpMax += 2;
 	level++;
 	obj_timelineManager.leveledUp = true;
 }
 
 // Die
-if (hp == 0)
+if (global.hp == 0)
 {
 	audio_play_sound(snd_explodeLong, 5, false);
 	SetGameState(GAME_STATE.GameOver);

@@ -24,7 +24,7 @@ function MoveEnemy(_frames = 15)
 	// Delete path
 	path_delete(path);
 	
-	if !audio_is_playing(snd_move) audio_play_sound(snd_move, 5, false);
+	//if !audio_is_playing(snd_move) audio_play_sound(snd_move, 5, false);
 	
 	// TEMP: Set image
 	//image_index = facingDir;
@@ -33,5 +33,5 @@ function MoveEnemy(_frames = 15)
 endBump = function()
 {
 	audio_play_sound(snd_explodeShort, 5, false);
-	with (obj_player) hp--;
+	with (obj_player) global.hp--;
 }

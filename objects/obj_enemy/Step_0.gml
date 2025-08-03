@@ -13,7 +13,7 @@ image_yscale = 1 + 0.025 * _sinCurve;
 // Enemy hit by attack
 if (place_meeting(x, y, obj_attack))
 {
-	with (obj_player) xp++;
+	with (obj_player) global.xp++;
 	
 	if !audio_is_playing(snd_explode) audio_play_sound(snd_explode, 5, false);
 	instance_create_depth(x, y, depth - 10, obj_wordParticle, {wordString: "Yeahhh!", color: c_blue})

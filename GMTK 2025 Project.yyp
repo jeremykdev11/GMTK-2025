@@ -555,6 +555,7 @@
     {"id":{"name":"__shd_scribble_bake_shadow","path":"shaders/__shd_scribble_bake_shadow/__shd_scribble_bake_shadow.yy",},},
     {"id":{"name":"__shd_scribble","path":"shaders/__shd_scribble/__shd_scribble.yy",},},
     {"id":{"name":"sh_outline","path":"shaders/sh_outline/sh_outline.yy",},},
+    {"id":{"name":"mus_funkyfresh","path":"sounds/mus_funkyfresh/mus_funkyfresh.yy",},},
     {"id":{"name":"snd_explode","path":"sounds/snd_explode/snd_explode.yy",},},
     {"id":{"name":"snd_explodeLong","path":"sounds/snd_explodeLong/snd_explodeLong.yy",},},
     {"id":{"name":"snd_explodeShort","path":"sounds/snd_explodeShort/snd_explodeShort.yy",},},

@@ -131,10 +131,40 @@ array_push(allActions, actionRecoil);
 actionRandom = new Action(
 	9,
 	spr_swordPattern,
-	[
-		new Vector(1, -1)
-	],
-	-1
+	-1,
+	-1,
+	function()
+	{
+		attack = array_create(3);
+		
+		var _tiles = 
+		[
+			new Vector(1, 0),
+			new Vector(2, 0),
+			new Vector(-1, 0),
+			new Vector(-2, 0),
+			new Vector(0, 1),
+			new Vector(0, 2),
+			new Vector(0, -1),
+			new Vector(0, -2),
+			new Vector(1, 1),
+			new Vector(1, -1),
+			new Vector(-1, 1),
+			new Vector(-1, -1)
+		];
+		
+		var _nums = array_create(3, -1);
+		
+		for (var i = 0; i < 3; i++)
+		{
+			var _num = irandom(11);
+			while (array_contains(_nums, _num)) _num = irandom(11);
+		
+			_nums[i] = _num;
+			attack[i] = _tiles[_num];
+		}
+		return attack;
+	}
 );
 array_push(allActions, actionRandom);
 

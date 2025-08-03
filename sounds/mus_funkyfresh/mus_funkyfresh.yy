@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_move",
+  "%Name":"mus_funkyfresh",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.444082,
-  "name":"snd_move",
+  "duration":27.42855,
+  "name":"mus_funkyfresh",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_move.mp3",
+  "soundFile":"mus_funkyfresh.mp3",
   "type":0,
-  "volume":0.5,
+  "volume":0.1,
 }
