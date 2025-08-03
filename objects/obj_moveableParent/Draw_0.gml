@@ -35,6 +35,8 @@ var _textureHeight = texture_get_texel_height(_texture);
 shader_set_uniform_f(u_texture, _textureWidth, _textureHeight);
 shader_set_uniform_f_array(u_col, [1.0, 1.0, 1.0, 1.0]);
 shader_set_uniform_f(u_width, 4.0);
+shader_set_uniform_f(u_bottom, 0.0);
+
 
 
 draw_surface_ext(_mainSurf, x - _xOffset, y - _yOffset - (_extra / 2), 0.5, 0.5, 0, c_white, 1);

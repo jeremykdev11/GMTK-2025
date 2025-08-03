@@ -1,6 +1,6 @@
 /// @desc Generic Action Setup
 
-attackColor = #e35115;
+attackColor = choose(#e35115, #0c7374, #bc115f);;
 
 if place_meeting(x, y, obj_wall) || place_empty(x, y)
 {

@@ -16,7 +16,9 @@ if (place_meeting(x, y, obj_attack))
 	with (obj_player) global.xp++;
 	
 	if !audio_is_playing(snd_explode) audio_play_sound(snd_explode, 5, false);
-	instance_create_depth(x, y, depth - 10, obj_wordParticle, {wordString: "Yeahhh!", color: c_blue})
+	var _word = choose("YEAH!", "LET'S GO!", "UH HUH!", "GET IT!");
+	var _color = choose(#e35115, #0c7374, #bc115f);
+	instance_create_depth(x, y + irandom_range(-5, 5), depth - 10, obj_wordParticle, {wordString: _word, color: _color})
 	ScreenShake(50);
 	HitStop();
 	
