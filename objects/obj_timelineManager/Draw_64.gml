@@ -21,25 +21,25 @@ if (global.gameState == GAME_STATE.LevelUp)
 		draw_sprite(spr_timelineSlot, i == slotPosition, _startX + _offsetX, 32);
 		if (actionArray[i] != -1)
 		{
-			draw_sprite(actionArray[i].sprite, 0, _startX + _offsetX, 32);
+			draw_sprite(spr_beatIcons, actionArray[i].subimg, _startX + _offsetX, 32);
 		}
 	}
 	
 	// Draw new action options
 	_actionCount = array_length(newActions)
 	
-	_displayWidth = _actionCount * iconSize + (_actionCount - 1) * iconSpacing;
+	_displayWidth = (_actionCount * iconSize + (_actionCount - 1) * iconSpacing) * 2;
 	_startX = room_width / 2 - _displayWidth / 2;
 	
 	for (var i = 0; i < _actionCount; i++)
 	{
-		var _offsetX = (iconSize + iconSpacing) * i;
-		draw_sprite(spr_timelineSlot, i == newActionPosition, _startX + _offsetX, 80);
-		draw_sprite(newActions[i].sprite, 0, _startX + _offsetX, 80);
+		var _offsetX = ((iconSize + iconSpacing) * i) * 2;
+		draw_sprite_ext(spr_timelineSlot, i == newActionPosition, _startX + _offsetX, 128, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(spr_beatIcons, newActions[i].subimg, _startX + _offsetX, 128, 2, 2, 0, c_white, 1);
 	}
 	
 	// Draw new action pattern
-	draw_sprite(newActions[newActionPosition].pattern, attackPatternState, room_width/2, 128);
+	//draw_sprite(newActions[newActionPosition].pattern, attackPatternState, room_width/2, 128);
 }
 else
 {
@@ -69,6 +69,6 @@ else
 	{
 		var _offsetX = (iconSize + iconSpacing) * i;
 		var _offsetY = (i == position) ? -8 : 0;
-		draw_sprite(_activeActions[i].sprite, 0, _startX + _offsetX, 32 + _offsetY);
+		draw_sprite(spr_beatIcons, _activeActions[i].subimg, _startX + _offsetX, 32 + _offsetY);
 	}
 }

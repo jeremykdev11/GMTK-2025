@@ -27,8 +27,94 @@ attackPatternDuration = 60;
 
 allActions = array_create(0);
 
-actionSword = new Action(
-	spr_swordTimeline,
+actionHit = new Action(
+	1,
+	spr_swordPattern,
+	[
+		new Vector(1, 0)
+	],
+	-1
+);
+array_push(allActions, actionHit);
+
+actionLob = new Action(
+	2,
+	spr_swordPattern,
+	[
+		new Vector(2, 0)
+	],
+	-1
+);
+array_push(allActions, actionLob);
+
+actionSides = new Action(
+	3,
+	spr_swordPattern,
+	[
+		new Vector(0, 1),
+		new Vector(0, -1)
+	],
+	-1
+);
+array_push(allActions, actionSides);
+
+actionCross = new Action(
+	4,
+	spr_swordPattern,
+	[
+		new Vector(1, 1),
+		new Vector(1, -1),
+		new Vector(-1, 1),
+		new Vector(-1, -1)
+	],
+	-1
+);
+array_push(allActions, actionCross);
+
+actionBehind = new Action(
+	5,
+	spr_swordPattern,
+	[
+		new Vector(-1, -1),
+		new Vector(-1, 0),
+		new Vector(-2, 0),
+		new Vector(-1, 1)
+	],
+	-1
+);
+array_push(allActions, actionBehind);
+
+actionDash = new Action(
+	6,
+	spr_swordPattern,
+	[
+		new Vector(-1, 0),
+		new Vector(-2, 0)
+	],
+	function()
+	{
+		with (obj_player) MoveCharacterByDir(facingDir, 32)
+	}
+);
+array_push(allActions, actionDash);
+
+actionRetreat = new Action(
+	7,
+	spr_swordPattern,
+	[
+		new Vector(1, 0),
+		new Vector(2, 0),
+		new Vector(3, 0)
+	],
+	function()
+	{
+		with (obj_player) MoveCharacterByDir((facingDir + 2) % 4, 32)
+	}
+);
+array_push(allActions, actionRetreat);
+
+actionRecoil = new Action(
+	8,
 	spr_swordPattern,
 	[
 		new Vector(1, -1),
@@ -40,32 +126,17 @@ actionSword = new Action(
 		with (obj_player) MoveCharacterByDir((facingDir + 2) % 4, 32)
 	}
 );
-array_push(allActions, actionSword);
+array_push(allActions, actionRecoil);
 
-actionGun = new Action(
-	spr_gunTimeline,
+actionRandom = new Action(
+	9,
 	spr_swordPattern,
 	[
-		new Vector(1, 0),
-		new Vector(2, 0),
-		new Vector(3, 0)
+		new Vector(1, -1)
 	],
 	-1
 );
-array_push(allActions, actionGun);
-
-actionCross = new Action(
-	spr_crossTimeline,
-	spr_crossPattern,
-	[
-		new Vector(1, 1),
-		new Vector(1, -1),
-		new Vector(-1, 1),
-		new Vector(-1, -1)
-	],
-	-1
-);
-array_push(allActions, actionCross);
+array_push(allActions, actionRandom);
 
 #endregion
 
