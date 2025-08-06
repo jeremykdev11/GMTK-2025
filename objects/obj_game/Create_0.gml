@@ -26,3 +26,7 @@ global.dustParticle = part_type_create();
 part_type_sprite(global.dustParticle, spr_walkDust, false, false, false);
 part_type_life(global.dustParticle, 20, 30);
 part_type_size(global.dustParticle, 0.8, 1, -0.05, 0);
+
+// Font
+global.font = font_add_sprite(spr_font, 32, true, 1);
+global.fontL = font_add_sprite(spr_fontL, 32, true, 2);

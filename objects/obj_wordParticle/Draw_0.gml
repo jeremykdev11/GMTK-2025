@@ -10,6 +10,7 @@ draw_clear_alpha(#d1d5b4, 0);
 
 #region draw
 
+draw_set_font(global.fontL);
 word.draw((_width / 2), 50, typist);
 
 #endregion

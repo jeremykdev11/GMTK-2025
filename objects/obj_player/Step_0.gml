@@ -78,7 +78,7 @@ if (global.xp >= global.xpMax)
 }
 
 // Die
-if (global.hp == 0)
+if (global.hp <= 0)
 {
 	audio_play_sound(snd_explodeLong, 5, false);
 	SetGameState(GAME_STATE.GameOver);

@@ -4,7 +4,7 @@ if (room == r_mainmenu)
 {
 	//Draw Main Menu
 	scribble_anim_wave(1, 50, 0.1);
-	draw_set_font(ft_large);
+	draw_set_font(global.fontL);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	for (var i = 0; i < menuLength; i++)
@@ -27,7 +27,7 @@ if (room == r_mainmenu)
 
 	if (menu == 1) //How to Play
 	{
-		draw_set_font(ft_large);
+		draw_set_font(global.fontL);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		draw_set_color(#d1d5b4);
@@ -42,7 +42,7 @@ if (room == r_mainmenu)
 	if (menu == 2) //Credits
 	{	
 		scribble_anim_wave(1, 50, 0.1);
-		draw_set_font(ft_large);
+		draw_set_font(global.fontL);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		draw_set_color(#d1d5b4);

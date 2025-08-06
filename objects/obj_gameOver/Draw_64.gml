@@ -10,7 +10,7 @@ draw_set_color(#444444);
 draw_rectangle(0, (room_height / 2) - 100, room_width, (room_height / 2) + 100, false)
 
 scribble_anim_wave(1, 50, 0.1);
-draw_set_font(ft_large);
+draw_set_font(global.fontL);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(#d1d5b4);

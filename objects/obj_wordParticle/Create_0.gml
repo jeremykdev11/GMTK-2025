@@ -22,7 +22,7 @@ word = scribble(wordString);
 
 word.transform(scale, scale, 0);
 
-word.starting_format("ft_large", color);
+//word.starting_format("ft_large", color);
 word.align(fa_center, fa_middle);
 
 #region shader 
